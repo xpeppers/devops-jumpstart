@@ -1,0 +1,18 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+  require_chef_omnibus: false
+
+platforms:
+  - name: ubuntu-14.04
+    driver:
+      box: xpeppers/devops-jumpstart
+
+suites:
+  - name: default
+    run_list:
+      - recipe[ci::default]
+    attributes:

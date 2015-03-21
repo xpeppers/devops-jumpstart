@@ -1,2 +1,2 @@
-# devops-jumpstart-redux
+# DevOps jumpstart
 DevOps jumpstart workshop
