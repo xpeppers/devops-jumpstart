@@ -8,7 +8,7 @@ require 'capybara/poltergeist'
 require 'rspec'
 
 Capybara.configure do |config|
-  config.default_wait_time = 3
+  config.default_max_wait_time = 3
   config.run_server = false
   config.default_driver = :poltergeist
   config.app_host = ENV['BLOG_HOST'] || 'http://localhost'

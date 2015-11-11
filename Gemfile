@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 ruby '2.2.0'
 
-gem 'sinatra', github: 'sinatra'
+gem 'sinatra'
 gem 'sinatra-activerecord'
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.20'
 gem 'rake'
 gem 'rack-flash3'
 gem 'unicorn', require: false

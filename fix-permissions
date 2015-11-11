@@ -1,4 +1,0 @@
-#!/bin/sh
-
-sudo chmod 755 $(sudo find /vagrant -type d)
-sudo chmod 644 $(sudo find /vagrant -type f)
