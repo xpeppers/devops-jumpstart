@@ -15,7 +15,7 @@ describe 'blog::db' do
 
     describe 'posso database' do
       describe command("echo \'SHOW DATABASES LIKE 'blog'\' | mysql --user=blog --password=blog") do
-        its(:stdout) { should match /blog/ }
+        its(:stderr) { should match /blog/ }
       end
     end
   end
