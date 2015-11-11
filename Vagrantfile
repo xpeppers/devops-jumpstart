@@ -14,6 +14,5 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision :chef_zero, install: false  do |chef|
     chef.add_recipe "blog::default"
-    chef.add_recipe "ci::default"
   end
 end
