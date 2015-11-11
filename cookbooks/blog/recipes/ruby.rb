@@ -7,3 +7,6 @@ file '/etc/gemrc' do
 end
 
 gem_package 'bundler'
+gem_package 'capistrano'
+gem_package 'capistrano-scm-copy'
+gem_package 'capistrano-bundler'
