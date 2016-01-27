@@ -7,6 +7,7 @@ mysql2_chef_gem 'default' do
 end
 
 service 'mysql' do
+  provider Chef::Provider::Service::Init::Debian
   action [:enable, :start]
 end
 
