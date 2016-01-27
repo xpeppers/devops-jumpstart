@@ -1,19 +1,17 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
+ENV['VAGRANT_DEFAULT_PROVIDER'] = 'docker'
 
 Vagrant.configure(2) do |config|
-  config.vm.box = "xpeppers/devops-jumpstart"
+  config.vm.provider "docker" do |docker|
+    docker.image = "xpeppers/devops-jumpstart"
+    docker.has_ssh = true
+  end
   config.vm.box_check_update = false
-  config.vm.network :forwarded_port, guest: 80, host: 8000
-  config.vm.network "private_network", ip: "192.168.42.10"
   config.ssh.insert_key = false
 
-  config.vm.provider "virtualbox" do |vb|
-    vb.cpus = "2"
-    vb.memory = "1024"
-  end
-
-  config.vm.provision :chef_zero, install: false  do |chef|
+  config.vm.network :forwarded_port, guest: 80, host: 8000
+  config.vm.provision :chef_solo, install: false  do |chef|
     chef.add_recipe "blog::default"
   end
 end

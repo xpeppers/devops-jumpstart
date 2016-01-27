@@ -1,6 +1,6 @@
 ---
 driver:
-  name: vagrant
+  name: docker
 
 provisioner:
   name: chef_zero
@@ -9,7 +9,7 @@ provisioner:
 platforms:
   - name: ubuntu-14.04
     driver:
-      box: xpeppers/devops-jumpstart
+      image: xpeppers/devops-jumpstart
 
 suites:
   - name: default
