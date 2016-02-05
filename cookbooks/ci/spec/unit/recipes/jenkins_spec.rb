@@ -12,7 +12,7 @@ describe 'ci::jenkins' do
   end
 
   it 'installs jre' do
-    expect(chef_run).to install_package('openjdk-7-jre')
+    expect(chef_run).to install_package('openjdk-7-jre-headless')
   end
 
   it 'installs jenkins plugin' do
