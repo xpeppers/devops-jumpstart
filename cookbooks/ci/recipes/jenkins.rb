@@ -1,6 +1,6 @@
 include_recipe 'apt'
 
-package 'openjdk-7-jre'
+package 'openjdk-7-jre-headless'
 
 include_recipe 'jenkins::master'
 
