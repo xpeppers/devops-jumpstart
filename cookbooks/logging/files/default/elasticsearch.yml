@@ -1,0 +1,7 @@
+cluster.name: blog
+node.name: blog
+
+index.number_of_shards: 1
+index.number_of_replicas: 0
+
+network.host: 0.0.0.0

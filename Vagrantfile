@@ -12,6 +12,19 @@ Vagrant.configure(2) do |config|
   config.vm.box_check_update = false
   config.ssh.insert_key = false
 
+  config.vm.define :management do |management|
+    management.vm.provider "docker" do |docker|
+      docker.name = "management"
+    end
+    management.vm.hostname = "management"
+    management.vm.network :forwarded_port, guest: 5044, host: 5044
+    management.vm.network :forwarded_port, guest: 5601, host: 5601
+
+    management.vm.provision :chef_solo, install: false  do |chef|
+      chef.add_recipe "logging::default"
+    end
+  end
+
   config.vm.define :development do |development|
     development.vm.provider "docker" do |docker|
       docker.name = "development"
@@ -39,12 +52,14 @@ Vagrant.configure(2) do |config|
   config.vm.define :production do |production|
     production.vm.provider "docker" do |docker|
       docker.name = "production"
+      docker.link "management:management"
     end
     production.vm.hostname = "production"
     production.vm.network :forwarded_port, guest: 80, host: 11000
 
     production.vm.provision :chef_solo, install: false  do |chef|
       chef.add_recipe "blog::default"
+      chef.add_recipe "logging::client"
     end
   end
 
