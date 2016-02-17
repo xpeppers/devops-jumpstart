@@ -12,8 +12,8 @@ describe 'logging::logstash' do
 
   it 'configures logstash' do
     expect(chef_run).to render_file('/etc/default/logstash')
-    expect(chef_run).to render_file('/etc/logstash/conf.d/input.conf')
-    expect(chef_run).to render_file('/etc/logstash/conf.d/filter.conf')
-    expect(chef_run).to render_file('/etc/logstash/conf.d/output.conf')
+    expect(chef_run).to render_file('/etc/logstash/conf.d/01-input.conf')
+    expect(chef_run).to render_file('/etc/logstash/conf.d/02-filter.conf')
+    expect(chef_run).to render_file('/etc/logstash/conf.d/03-output.conf')
   end
 end
