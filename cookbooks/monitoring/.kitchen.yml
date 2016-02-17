@@ -1,0 +1,21 @@
+---
+driver:
+  name: docker
+
+provisioner:
+  name: chef_zero
+  require_chef_omnibus: false
+
+platforms:
+  - name: ubuntu-14.04
+    driver:
+      image: xpeppers/devops-jumpstart
+
+suites:
+  - name: default
+    run_list:
+      - recipe[monitoring::default]
+      - recipe[monitoring::client]
+    attributes:
+
+

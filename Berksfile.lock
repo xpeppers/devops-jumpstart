@@ -5,6 +5,8 @@ DEPENDENCIES
     path: cookbooks/ci
   logging
     path: cookbooks/logging
+  monitoring
+    path: cookbooks/monitoring
 
 GRAPH
   apt (2.9.2)
@@ -29,6 +31,8 @@ GRAPH
     apt (>= 0.0.0)
     yum (>= 0.0.0)
     yum-epel (>= 0.0.0)
+  monitoring (0.1.0)
+    apt (>= 0.0.0)
   mysql (6.1.2)
     smf (>= 0.0.0)
     yum-mysql-community (>= 0.0.0)

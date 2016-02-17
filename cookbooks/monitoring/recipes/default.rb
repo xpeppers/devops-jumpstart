@@ -1,0 +1,6 @@
+include_recipe 'apt'
+include_recipe 'monitoring::rabbitmq'
+include_recipe 'monitoring::redis'
+include_recipe 'monitoring::influxdb'
+include_recipe 'monitoring::sensu'
+include_recipe 'monitoring::grafana'

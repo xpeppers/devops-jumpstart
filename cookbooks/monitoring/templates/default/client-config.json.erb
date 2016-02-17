@@ -1,0 +1,14 @@
+{
+  "rabbitmq": {
+    "host": "<%= @host %>",
+    "port": 5672,
+    "vhost": "/sensu",
+    "user": "sensu",
+    "password": "sensu"
+  },
+  "client": {
+    "name": "sensu-client",
+    "address": "localhost",
+    "subscriptions": [ "ALL" ]
+  }
+}

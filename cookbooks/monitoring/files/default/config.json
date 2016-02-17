@@ -1,0 +1,49 @@
+{
+  "rabbitmq": {
+    "host": "localhost",
+    "port": 5672,
+    "vhost": "/sensu",
+    "user": "sensu",
+    "password": "sensu"
+  },
+  "redis": {
+    "host": "localhost",
+    "port": 6379
+  },
+  "api": {
+    "name": "Sensu API",
+    "host": "localhost",
+    "port": 4567
+  },
+  "checks": {
+    "metrics-cpu": {
+      "type": "metric",
+      "command": "metrics-cpu.rb",
+      "interval": 30,
+      "subscribers": [ "ALL" ]
+    },
+    "metrics-disk": {
+      "type": "metric",
+      "command": "metrics-disk.rb",
+      "interval": 30,
+      "subscribers": [ "ALL" ]
+    },
+    "metrics-nginx": {
+      "type": "metric",
+      "command": "metrics-nginx.rb",
+      "interval": 30,
+      "subscribers": [ "ALL" ]
+    }
+  },
+  "influxdb": {
+    "database": "sensu",
+    "host": "localhost",
+    "port": "8086"
+  },
+  "handlers": {
+    "default": {
+      "type": "set",
+      "handlers": ["debug", "influxdb"]
+    }
+  }
+}

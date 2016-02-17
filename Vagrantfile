@@ -19,9 +19,13 @@ Vagrant.configure(2) do |config|
     management.vm.hostname = "management"
     management.vm.network :forwarded_port, guest: 5044, host: 5044
     management.vm.network :forwarded_port, guest: 5601, host: 5601
+    management.vm.network :forwarded_port, guest: 5672, host: 5672
+    management.vm.network :forwarded_port, guest: 2000, host: 2000
+    management.vm.network :forwarded_port, guest: 3000, host: 3000
 
     management.vm.provision :chef_solo, install: false  do |chef|
       chef.add_recipe "logging::default"
+      chef.add_recipe "monitoring::default"
     end
   end
 
@@ -60,6 +64,12 @@ Vagrant.configure(2) do |config|
     production.vm.provision :chef_solo, install: false  do |chef|
       chef.add_recipe "blog::default"
       chef.add_recipe "logging::client"
+      chef.add_recipe "monitoring::client"
+      chef.json = {
+        "monitoring" => {
+          "host" => "management"
+        }
+      }
     end
   end
 
