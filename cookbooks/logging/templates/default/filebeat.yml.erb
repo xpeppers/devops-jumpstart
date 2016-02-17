@@ -1,0 +1,21 @@
+filebeat:
+  prospectors:
+    -
+      paths:
+        - /var/log/auth.log
+        - /var/log/syslog
+      input_type: log
+      document_type: syslog
+    -
+      paths:
+        - /var/log/nginx/access.log
+      input_type: log
+      document_type: nginx-access
+    -
+      paths:
+        - /tmp/unicorn.blog.log
+      input_type: log
+      document_type: unicorn
+output:
+  logstash:
+    hosts: ["<%= @host %>:5044"]

@@ -7,9 +7,10 @@ end
 
 package 'filebeat'
 
-cookbook_file '/etc/filebeat/filebeat.yml' do
-  source 'filebeat.yml'
+template '/etc/filebeat/filebeat.yml' do
+  source 'filebeat.yml.erb'
   mode '00644'
+  variables host: node['logging']['host']
 end
 
 service 'filebeat' do

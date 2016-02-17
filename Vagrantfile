@@ -60,6 +60,11 @@ Vagrant.configure(2) do |config|
     production.vm.provision :chef_solo, install: false  do |chef|
       chef.add_recipe "blog::default"
       chef.add_recipe "logging::client"
+      chef.json = {
+        "monitoring" => {
+          "host" => "management"
+        }
+      }
     end
   end
 
