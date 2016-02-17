@@ -66,6 +66,9 @@ Vagrant.configure(2) do |config|
       chef.add_recipe "logging::client"
       chef.add_recipe "monitoring::client"
       chef.json = {
+        "logging" => {
+          "host" => "management"
+        },
         "monitoring" => {
           "host" => "management"
         }

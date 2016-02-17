@@ -1,0 +1,1 @@
+default['logging']['host'] = 'localhost'

@@ -18,4 +18,4 @@ filebeat:
       document_type: unicorn
 output:
   logstash:
-    hosts: ["management:5044"]
+    hosts: ["<%= @host %>:5044"]
