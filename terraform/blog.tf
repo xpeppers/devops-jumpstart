@@ -20,10 +20,16 @@ resource "aws_security_group" "blog" {
         protocol  = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
+    egress {
+        from_port = 0
+        to_port = 0
+        protocol = "-1"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
 }
 
 resource "aws_instance" "blog" {
-    instance_type = "t2.micro"
+    instance_type = "t2.small"
     ami = "${var.ami}"
     key_name = "devops-jumpstart"
     security_groups = ["${aws_security_group.blog.name}"]
