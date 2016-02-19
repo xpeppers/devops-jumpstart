@@ -1,1 +1,7 @@
 .vagrant
+berks-cookbooks
+**/packer-variables.json
+**/terraform.tfvars
+**/*.tfstate
+**/*.tfstate.backup
+config/deploy/aws.rb
