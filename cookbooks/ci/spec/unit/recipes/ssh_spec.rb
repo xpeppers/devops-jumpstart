@@ -13,4 +13,8 @@ describe 'ci::ssh' do
   it 'creates private key' do
     expect(chef_run).to create_cookbook_file('/var/lib/jenkins/.ssh/id_rsa').with(mode: 0600)
   end
+
+  it 'creates remote private key' do
+    expect(chef_run).to create_remote_file('/var/lib/jenkins/.ssh/devops-jumpstart_id_rsa').with(mode: 0600)
+  end
 end

@@ -14,4 +14,13 @@ describe 'ci::ssh' do
   describe x509_private_key('/var/lib/jenkins/.ssh/id_rsa') do
     it { should be_valid }
   end
+
+  describe file('/var/lib/jenkins/.ssh/devops-jumpstart_id_rsa') do
+    it { should be_mode 600 }
+    it { should be_owned_by 'jenkins' }
+  end
+
+  describe x509_private_key('/var/lib/jenkins/.ssh/devops-jumpstart_id_rsa') do
+    it { should be_valid }
+  end
 end
