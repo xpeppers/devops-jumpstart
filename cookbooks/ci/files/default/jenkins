@@ -1,0 +1,22 @@
+NAME=jenkins
+
+JAVA=/usr/bin/java
+JAVA_ARGS="-Xms64m -Xmx64m -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true"
+
+JENKINS_USER=$NAME
+JENKINS_GROUP=$NAME
+
+PIDFILE=/var/run/$NAME/$NAME.pid
+JENKINS_WAR=/usr/share/$NAME/$NAME.war
+JENKINS_HOME=/var/lib/$NAME
+JENKINS_LOG=/var/log/$NAME/$NAME.log
+
+RUN_STANDALONE=true
+
+MAXOPENFILES=8192
+HTTP_PORT=8080
+AJP_PORT=-1
+
+PREFIX=/$NAME
+
+JENKINS_ARGS="--webroot=/var/cache/$NAME/war --httpPort=$HTTP_PORT --ajp13Port=$AJP_PORT"
