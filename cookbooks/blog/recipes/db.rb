@@ -6,6 +6,10 @@ mysql2_chef_gem 'default' do
   action :install
 end
 
+file '/etc/mysql/my.cnf' do
+  source 'my.cnf'
+end
+
 service 'mysql' do
   provider Chef::Provider::Service::Init::Debian
   action [:enable, :start]
