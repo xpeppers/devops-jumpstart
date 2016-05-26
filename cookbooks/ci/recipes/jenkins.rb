@@ -8,8 +8,8 @@ cookbook_file '/etc/default/jenkins' do
   source 'jenkins'
 end
 
-jenkins_plugin 'delivery-pipeline-plugin'
-jenkins_plugin 'build-pipeline-plugin' do
+jenkins_plugin 'git'
+jenkins_plugin 'workflow-aggregator' do
   notifies :restart, 'service[jenkins]'
 end
 
